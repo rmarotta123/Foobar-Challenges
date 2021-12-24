@@ -1,3 +1,6 @@
+"""At some point I got frustrated trying to find the most efficient solution so I made this program to brute force it.
+For every wall in the maze, it finds the shortest path through the maze where the wall is a path instead. A lot of the documentation 
+on this code is not updated."""
 class Node:
     def __init__(self, is_wall):
         self.is_wall = is_wall     # Bool denoting whether node is path (False) or wall (True)
