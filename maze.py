@@ -27,7 +27,7 @@ def solution(map):
     # Then calculate from the end (h-1, w-1) to the beginning (0, 0)
     for_path = get_distance(map, (0, 0), (height, width))
     back_path = get_distance(map, (height, width), (0, 0))
-
+    
     # Return whichever distance is shorter
     if for_path < back_path:
         return for_path
@@ -94,13 +94,13 @@ def _link_nodes(matrix):
                 if column > 0:
                     matrix[row][column].left = matrix[row][column - 1]
 
-                if column < len(matrix) - 1:
+                if column < len(matrix[row]) - 1:
                     matrix[row][column].right = matrix[row][column + 1]
 
                 if row > 0:
                     matrix[row][column].up = matrix[row - 1][column]
 
-                if row < len(matrix[column]) - 1:
+                if row < len(matrix) - 1:
                     matrix[row][column].down = matrix[row + 1][column]
 
 
@@ -167,13 +167,23 @@ def _calculate_distance(end, unvisited, visited):
 
 
 # The two non-hidden test cases
-print(solution([[0, 0, 0, 0, 0, 0],
-          [1, 1, 1, 1, 1, 0],
-          [0, 0, 0, 0, 0, 0],
-          [0, 1, 1, 1, 1, 1],
-          [0, 1, 1, 1, 1, 1],
-          [0, 0, 0, 0, 0, 0]]))
+"""print(solution([[0, 0, 0, 0, 0, 0],
+                   [1, 1, 1, 1, 1, 0],
+                   [0, 0, 0, 0, 0, 0],
+                   [0, 1, 1, 1, 1, 1],
+                   [0, 1, 1, 1, 1, 1],
+                   [0, 0, 0, 0, 0, 0]]))"""
 """print(solution([[0, 1, 1, 0],
                 [0, 0, 0, 1],
                 [1, 1, 0, 1],
                 [1, 1, 1, 0]]))"""
+# Maze I created that algorithim isn't solving correctly
+print(solution([[0, 1, 1, 1, 0, 0, 0],
+                [0, 1, 0, 1, 0, 1, 0],
+                [0, 1, 0, 1, 0, 1, 0],
+                [0, 1, 0, 1, 0, 1, 0],
+                [0, 1, 0, 1, 0, 1, 0],
+                [0, 1, 0, 1, 0, 1, 0],
+                [0, 1, 0, 1, 0, 1, 0],
+                [0, 0, 0, 1, 1, 1, 0]]))
+
